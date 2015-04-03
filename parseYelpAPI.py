@@ -11,7 +11,10 @@ for iii in response:
     names = iii['businesses']
     shuffle(names)
     for business in names:
-        f.write('%s\n' % (business['name']))
+        if business['is_closed'] == False:
+            f.write('%s\n' % (business['name']))
+        else:
+            print('{0} is closed\n'.format(business['name']))
 
 
 # Prints out some buisness info, example from yelp api python interface
